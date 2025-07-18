@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_LayoutHeadComponentPartial")
+<body>
+
+    <!-- START PRELOADER -->
+    <div class="preloaders">
+        <span class="loader"></span>
+    </div>
+    <!-- END PRELOADER -->
+    <!-- START LOGO WITH CONTACT -->
+    @await Component.InvokeAsync("_LayoutLogoContactComponentPartial")
+
+    <!-- END LOGO WITH CONTACT -->
+    <!-- START NAVBAR -->
+    @await Component.InvokeAsync("_LayoutNavbarComponentPartial")
+    <!-- END NAVBAR -->
+    @RenderBody()
+
+    <!-- START FOOTER -->
+    @await Component.InvokeAsync("_LayoutFooterComponentPartial")
+    <!-- END FOOTER -->
+    @await Component.InvokeAsync("_LayoutScriptsComponentPartial")
+
+    @await Component.InvokeAsync("_LayoutWpBtnComponentPartial")
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "EditWhyUs";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- STYLESHEETS -->
+<link href="~/admin-template/assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen" />
+
+<section id="main-content">
+    <section class="wrapper main-wrapper">
+
+        <div class="col-12">
+            <div class="page-title">
+                <div class="float-left">
+                    <h1 class="title">Neden Ünlü Online Akademi? Düzenle</h1>
+                </div>
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li><a href="/Admin/Dashboard/Index"><i class="fa fa-home"></i> Dashboard</a></li>
+                        <li><a href="/Admin/Home/Index"> /Ana Sayfa</a></li>
+                        <li class="active"><strong> /Düzenle</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+
+        <div class="col-12">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title float-left">Neden Ünlü Online Akademi?</h2>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label" for="first-name">Başlık</label>
+                                <input type="text" class="form-control" id="first-name" name="firstName">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label" for="comment">Açıklama</label>
+                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="text-left mt-3">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        </form>
+        </div>
+    </section>
+
+</section>
+
+<!-- JS SCRIPTS -->
+<script src="~/admin-template/assets/plugins/datepicker/js/datepicker.js"></script>
+<script src="~/admin-template/assets/plugins/autosize/autosize.min.js"></script>
+<script src="~/admin-template/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js"></script>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main-content" class=" ">
+    <section class="wrapper main-wrapper" style=''>
+        @await Component.InvokeAsync("_CoursesBreadcrumbComponentPartial")
+
+        <div class="clearfix"></div>
+        @await Component.InvokeAsync("_CoursesCategoriesComponentPartial")
+
+        @await Component.InvokeAsync("_CoursesLessonsComponentPartial")
+
+    </section>
+</section>

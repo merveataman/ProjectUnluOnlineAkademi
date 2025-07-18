@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START SECTION TOP -->
+@await Component.InvokeAsync("_AboutUsPageNavigationComponentPartial")
+<!-- END SECTION TOP -->
+
+<!-- START ABOUT US HOME ONE -->
+@await Component.InvokeAsync("_AboutUsSectionComponentPartial")
+<!-- END ABOUT US HOME ONE -->
+
+<!-- START WHY CHOOSE US-->
+@await Component.InvokeAsync("_AboutUsWhyUsComponentPartial")
+<!-- END WHY CHOOSE US -->

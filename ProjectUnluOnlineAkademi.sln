@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.UI", "UnluOnlineAkademi.UI\UnluOnlineAkademi.UI.csproj", "{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5688BB8-03DB-422F-B9AF-2E20A8A419E8}
+	EndGlobalSection
+EndGlobal

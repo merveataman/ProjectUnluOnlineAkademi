@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START SECTION TOP -->
+@await Component.InvokeAsync("_ContactPageNavigationComponentPartial")
+<!-- END SECTION TOP -->
+
+<!-- START ADDRESS -->
+@await Component.InvokeAsync("_ContactAddressAreaComponentPartial")
+<!-- END ADDRESS -->
+<!-- START MAP -->
+<!-- CONTACT -->
+@await Component.InvokeAsync("_ContactContactAreaComponentPartial")
+<!-- END CONTACT -->

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class=" ">
+@await Component.InvokeAsync("_AdminLayoutHeadComponentPartial")
+
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class=" ">
+    <!-- START TOPBAR -->
+    @await Component.InvokeAsync("_AdminLayoutTopbarComponentPartial")
+
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid">
+
+        <!-- SIDEBAR - START -->
+        @await Component.InvokeAsync("_AdminLayoutSidebarComponentPartial")
+
+        <!--  SIDEBAR - END -->
+        <!-- START CONTENT -->
+        @RenderBody()
+
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    @await Component.InvokeAsync("_AdminLayoutScriptsComponentPartial")
+
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "AddStudentTestimonials";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- STYLESHEETS -->
+<link href="~/admin-template/assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen" />
+
+<section id="main-content">
+    <section class="wrapper main-wrapper">
+
+        <div class="col-12">
+            <div class="page-title">
+                <div class="float-left">
+                    <h1 class="title">Yeni Öğrenci Yorumu Ekle</h1>
+                </div>
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li><a href="/Admin/Dashboard/Index"><i class="fa fa-home"></i> Dashboard</a></li>
+                        <li><a href="/Admin/Home/Index"> /Ana Sayfa</a></li>
+                        <li class="active"><strong> /Yeni Yorum</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+
+        <div class="col-12">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title float-left">Öğrenci Yorumları</h2>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-label" for="first-name">Öğrenci İsim</label>
+                                <input type="text" class="form-control" id="first-name" name="firstName">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-label" for="last-name">Öğrenci Soyisim</label>
+                                <input type="text" class="form-control" id="last-name" name="lastName">
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="form-label" for="program">Katıldığı Eğitim</label>
+                                <input type="text" class="form-control" id="program" name="program">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label" for="comment">Öğrenci Yorumu</label>
+                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="form-label" for="rating">Puan</label>
+                                <select class="form-control" id="rating" name="rating">
+                                    <option value="1">1 - Çok Kötü</option>
+                                    <option value="2">2 - Kötü</option>
+                                    <option value="3">3 - Orta</option>
+                                    <option value="4">4 - İyi</option>
+                                    <option value="5">5 - Mükemmel</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="text-left mt-3">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        </form>
+        </div>
+    </section>
+
+</section>
+
+<!-- JS SCRIPTS -->
+<script src="~/admin-template/assets/plugins/datepicker/js/datepicker.js"></script>
+<script src="~/admin-template/assets/plugins/autosize/autosize.min.js"></script>
+<script src="~/admin-template/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js"></script>

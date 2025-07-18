@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START HOME -->
+@await Component.InvokeAsync("_HomeHeaderSectionComponentPartial")
+<!-- END  HOME -->
+
+<!-- START WHY US HOME ONE -->
+@await Component.InvokeAsync("_HomeWhyUsSectionComponentPartial")
+<!-- END WHY US HOME ONE -->
+
+<!-- START COURSES-->
+@await Component.InvokeAsync("_HomeCoursesSectionComponentPartial")
+<!-- END COURSES -->
+
+<!-- START EDUCATIONAL CONTENT-->
+@await Component.InvokeAsync("_HomeEducationalContentSectionComponentPartial")
+<!-- END EDUCATIONAL CONTENT -->
+
+<!-- START CONTACT FORM-->
+@await Component.InvokeAsync("_HomeContactFormSectionComponentPartial")
+<!-- END CONTACT FORM -->
+
+<!-- START ACHIEVEMENTS -->
+@await Component.InvokeAsync("_HomeAchievementsSectionComponentPartial")
+<!-- END ACHIEVEMENTS -->
+
+<!-- START TESTIMONIALS-->
+@await Component.InvokeAsync("_HomeStudentTestimonialsSectionComponentPartial")
+<!-- END TESTIMONIALS -->
+
+<!-- START BLOG -->
+@await Component.InvokeAsync("_HomeBlogSectionComponentPartial")
+<!-- END BLOG -->
+
