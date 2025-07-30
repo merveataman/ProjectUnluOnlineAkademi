@@ -10,5 +10,6 @@ namespace UnluOnlineAkademi.Application.AboutUs.Queries
     {
         public string Title { get; set; }
         public string Desc { get; set; }
+
     }
 }
