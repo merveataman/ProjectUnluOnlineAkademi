@@ -10,7 +10,6 @@ namespace UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand
 {
     public class CreateAboutUsCommand : IRequest<Guid>
     {
-        public Guid ID { get; set; }
         public string Title { get; set; }
         public string Desc { get; set; }
         public string? Image { get; set; }
