@@ -10,12 +10,12 @@ using UnluOnlineAkademi.Domain.Interfaces;
 
 namespace UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand
 {
-    public class CreateAboutUsQueryHandler : IRequestHandler<CreateAboutUsCommand, Guid>
+    public class CreateAboutUsCommandHandler : IRequestHandler<CreateAboutUsCommand, Guid>
     {
         private readonly IGenericRepository<Domain.Entities.AboutUs> _repository;
         private readonly IMapper _mapper;
 
-        public CreateAboutUsQueryHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
+        public CreateAboutUsCommandHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

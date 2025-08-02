@@ -9,12 +9,12 @@ using UnluOnlineAkademi.Domain.Interfaces;
 
 namespace UnluOnlineAkademi.Application.AboutUs.Commands.DeleteAboutUsCommand
 {
-    public class DeleteAboutUsQueryHandler : IRequestHandler<DeleteAboutUsCommand, bool>
+    public class DeleteAboutUsCommandHandler : IRequestHandler<DeleteAboutUsCommand, bool>
     {
         private readonly IGenericRepository<Domain.Entities.AboutUs> _repository;
         private readonly IMapper _mapper;
 
-        public DeleteAboutUsQueryHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
+        public DeleteAboutUsCommandHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

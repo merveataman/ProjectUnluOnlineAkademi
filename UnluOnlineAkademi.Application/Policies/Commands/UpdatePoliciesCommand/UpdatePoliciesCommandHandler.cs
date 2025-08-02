@@ -5,22 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand;
 using UnluOnlineAkademi.Domain.Interfaces;
 
-namespace UnluOnlineAkademi.Application.AboutUs.Commands.UpdateAboutUsCommand
+namespace UnluOnlineAkademi.Application.Policies.Commands.UpdatePoliciesCommand
 {
-    public class UpdateAboutUsQueryHandler : IRequestHandler<UpdateAboutUsCommand, bool>
+    public class UpdatePoliciesCommandHandler : IRequestHandler<UpdatePoliciesCommand, bool>
     {
-        private readonly IGenericRepository<Domain.Entities.AboutUs> _repository;
+        private readonly IGenericRepository<Domain.Entities.Policies> _repository;
         private readonly IMapper _mapper;
 
-        public UpdateAboutUsQueryHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
+        public UpdatePoliciesCommandHandler(IGenericRepository<Domain.Entities.Policies> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<bool> Handle(UpdateAboutUsCommand request, CancellationToken cancellationToken)
+
+        public async Task<bool> Handle(UpdatePoliciesCommand request, CancellationToken cancellationToken)
         {
             var existingEntity = await _repository.GetByIdAsync(request.ID);
             if (existingEntity == null)

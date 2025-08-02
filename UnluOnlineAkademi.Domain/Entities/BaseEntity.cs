@@ -9,7 +9,7 @@ namespace UnluOnlineAkademi.Domain.Entities
     public abstract class BaseEntity
     {
         public Guid ID { get; set; } = Guid.NewGuid();
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
     }
