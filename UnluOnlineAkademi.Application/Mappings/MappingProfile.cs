@@ -1,14 +1,44 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand;
 using UnluOnlineAkademi.Application.AboutUs.Commands.DeleteAboutUsCommand;
 using UnluOnlineAkademi.Application.AboutUs.Commands.UpdateAboutUsCommand;
 using UnluOnlineAkademi.Application.AboutUs.Queries.AboutUsById;
 using UnluOnlineAkademi.Application.AboutUs.Queries.AboutUsList;
+using UnluOnlineAkademi.Application.Achievements.Commands.CreateAchievementsCommand;
+using UnluOnlineAkademi.Application.Achievements.Commands.DeleteAchievementsCommand;
+using UnluOnlineAkademi.Application.Achievements.Commands.UpdateAchievementsCommand;
+using UnluOnlineAkademi.Application.Achievements.Queries.AchievementsById;
+using UnluOnlineAkademi.Application.Achievements.Queries.AchievementsGetList;
+using UnluOnlineAkademi.Application.Blog.Commands.CreateBlogCommand;
+using UnluOnlineAkademi.Application.Blog.Commands.DeleteBlogCommand;
+using UnluOnlineAkademi.Application.Blog.Commands.UpdateBlogCommand;
+using UnluOnlineAkademi.Application.Blog.Queries.BlogById;
+using UnluOnlineAkademi.Application.Blog.Queries.BlogGetList;
+using UnluOnlineAkademi.Application.ContactInfo.Commands.CreateContactInfoCommand;
+using UnluOnlineAkademi.Application.ContactInfo.Commands.DeleteContactInfoCommand;
+using UnluOnlineAkademi.Application.ContactInfo.Commands.UpdateContactInfoCommand;
+using UnluOnlineAkademi.Application.ContactInfo.Queries.ContactInfoById;
+using UnluOnlineAkademi.Application.ContactInfo.Queries.ContactInfoGetList;
+using UnluOnlineAkademi.Application.ContactOptions.Commands.CreateContactOptionsCommand;
+using UnluOnlineAkademi.Application.ContactOptions.Commands.DeleteContactOptionsCommand;
+using UnluOnlineAkademi.Application.ContactOptions.Commands.UpdateContactOptionsCommand;
+using UnluOnlineAkademi.Application.ContactOptions.Queries.ContactOptionsById;
+using UnluOnlineAkademi.Application.ContactOptions.Queries.ContactOptionsGetList;
+using UnluOnlineAkademi.Application.CourseCategory.Commands.CreateCourseCategoryCommand;
+using UnluOnlineAkademi.Application.CourseCategory.Commands.DeleteCourseCategoryCommand;
+using UnluOnlineAkademi.Application.CourseCategory.Commands.UpdateCourseCategoryCommand;
+using UnluOnlineAkademi.Application.CourseCategory.Queries.CourseCategoryById;
+using UnluOnlineAkademi.Application.CourseCategory.Queries.CourseCategoryGetList;
+using UnluOnlineAkademi.Application.CourseLessons.Commands.CreateCourseLessonsCommand;
+using UnluOnlineAkademi.Application.CourseLessons.Commands.DeleteCourseLessonsCommand;
+using UnluOnlineAkademi.Application.CourseLessons.Commands.UpdateCourseLessonsCommand;
+using UnluOnlineAkademi.Application.CourseLessons.Queries.CourseLessonsById;
+using UnluOnlineAkademi.Application.CourseLessons.Queries.CourseLessonsGetList;
+using UnluOnlineAkademi.Application.EducationalContent.Commands.CreateEducationalContentCommand;
+using UnluOnlineAkademi.Application.EducationalContent.Commands.DeleteEducationalContentCommand;
+using UnluOnlineAkademi.Application.EducationalContent.Commands.UpdateEducationalContentCommand;
+using UnluOnlineAkademi.Application.EducationalContent.Queries.EducationalContentById;
+using UnluOnlineAkademi.Application.EducationalContent.Queries.EducationalContentGetList;
 using UnluOnlineAkademi.Application.MailList.Commands.CreateMailListCommand;
 using UnluOnlineAkademi.Application.MailList.Commands.DeleteMailListCommand;
 using UnluOnlineAkademi.Application.MailList.Commands.UpdateMailListCommand;
@@ -47,6 +77,48 @@ namespace UnluOnlineAkademi.Application.Mappings
             CreateMap<UnluOnlineAkademi.Domain.Entities.AboutUs, CreateAboutUsCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.AboutUs, UpdateAboutUsCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.AboutUs, DeleteAboutUsCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Achievements, AchievementsDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Achievements, AchievementsByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Achievements, CreateAchievementsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Achievements, UpdateAchievementsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Achievements, DeleteAchievementsCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Blog, BlogDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Blog, BlogByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Blog, CreateBlogCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Blog, UpdateBlogCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Blog, DeleteBlogCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactInfos, ContactInfoDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactInfos, ContactInfoByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactInfos, CreateContactInfoCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactInfos, UpdateContactInfoCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactInfos, DeleteContactInfoCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactOptions, ContactOptionsDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactOptions, ContactOptionsByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactOptions, CreateContactOptionsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactOptions, UpdateContactOptionsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.ContactOptions, DeleteContactOptionsCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseCategory, CourseCategoryDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseCategory, CourseCategoryByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseCategory, CreateCourseCategoryCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseCategory, UpdateCourseCategoryCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseCategory, DeleteCourseCategoryCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseLessons, CourseLessonsDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseLessons, CourseLessonsByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseLessons, CreateCourseLessonsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseLessons, UpdateCourseLessonsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.CourseLessons, DeleteCourseLessonsCommand>().ReverseMap();
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.EducationalContent, EducationalContentDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.EducationalContent, EducationalContentByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.EducationalContent, CreateEducationalContentCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.EducationalContent, UpdateEducationalContentCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.EducationalContent, DeleteEducationalContentCommand>().ReverseMap();
 
             CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, WhyUsDto>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, WhyUsByIdDto>().ReverseMap();

@@ -1,6 +1,8 @@
-﻿namespace UnluOnlineAkademi.Domain.Entities
+﻿using MediatR;
+
+namespace UnluOnlineAkademi.Application.Blog.Commands.CreateBlogCommand
 {
-    public class Blog:BaseEntity
+    public class CreateBlogCommand : IRequest<Guid>
     {
         public string Title { get; set; }
         public string Desc { get; set; }
@@ -9,6 +11,5 @@
         public string? Image { get; set; }
         public DateTime? PublishDate { get; set; }
         public bool? Status { get; set; }
-
     }
 }
