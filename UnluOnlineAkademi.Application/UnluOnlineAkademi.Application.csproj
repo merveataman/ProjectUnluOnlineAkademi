@@ -19,9 +19,5 @@
 		<ProjectReference Include="..\UnluOnlineAkademi.Domain\UnluOnlineAkademi.Domain.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="AboutUs\Commands\" />
-	</ItemGroup>
-
 
 </Project>

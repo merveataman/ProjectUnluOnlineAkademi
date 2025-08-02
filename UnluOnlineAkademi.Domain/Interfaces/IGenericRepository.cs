@@ -14,6 +14,6 @@ namespace UnluOnlineAkademi.Domain.Interfaces
         Task<List<T>> GetAllAsync();
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
-        void DeleteAsync(Guid id);
+        Task DeleteAsync(Guid id);
     }
 }

@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 using UnluOnlineAkademi.Domain.Entities;
 using UnluOnlineAkademi.Domain.Interfaces;
 
-namespace UnluOnlineAkademi.Application.AboutUs.Queries
+namespace UnluOnlineAkademi.Application.AboutUs.Queries.AboutUsList
 {
     public class GetAboutUsListQueryHandler : IRequestHandler<GetAboutUsListQuery, List<AboutUsDto>>
     {
-        private readonly IGenericRepository<UnluOnlineAkademi.Domain.Entities.AboutUs> _repository;
+        private readonly IGenericRepository<Domain.Entities.AboutUs> _repository;
         private readonly IMapper _mapper;
+
+        public GetAboutUsListQueryHandler(IGenericRepository<Domain.Entities.AboutUs> repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public async Task<List<AboutUsDto>> Handle(GetAboutUsListQuery request, CancellationToken cancellationToken)
         {
             var entities = await _repository.GetAllAsync();

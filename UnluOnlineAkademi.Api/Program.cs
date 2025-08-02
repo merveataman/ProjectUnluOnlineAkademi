@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using UnluOnlineAkademi.Application.AboutUs.Queries;
+using UnluOnlineAkademi.Application.AboutUs.Queries.AboutUsList;
 using UnluOnlineAkademi.Application.Mappings;
 using UnluOnlineAkademi.Domain.Interfaces;
 using UnluOnlineAkademi.Persistence.Context;
