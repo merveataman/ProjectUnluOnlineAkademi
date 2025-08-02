@@ -5,6 +5,14 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.UI", "UnluOnlineAkademi.UI\UnluOnlineAkademi.UI.csproj", "{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.Application", "UnluOnlineAkademi.Application\UnluOnlineAkademi.Application.csproj", "{92F8FA17-BA6B-4D79-9396-F09A641E6D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.Domain", "UnluOnlineAkademi.Domain\UnluOnlineAkademi.Domain.csproj", "{4255BB32-8D64-461B-ADBF-8BD3D7416527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.Persistence", "UnluOnlineAkademi.Persistence\UnluOnlineAkademi.Persistence.csproj", "{3483A150-376E-42BA-AA01-621B57D219CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnluOnlineAkademi.Api", "UnluOnlineAkademi.Api\UnluOnlineAkademi.Api.csproj", "{398D140B-E68F-404D-B757-47E724299A46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{769A0B82-FFFC-4A5A-99A2-E8DD5FB9EEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92F8FA17-BA6B-4D79-9396-F09A641E6D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F8FA17-BA6B-4D79-9396-F09A641E6D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F8FA17-BA6B-4D79-9396-F09A641E6D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F8FA17-BA6B-4D79-9396-F09A641E6D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4255BB32-8D64-461B-ADBF-8BD3D7416527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4255BB32-8D64-461B-ADBF-8BD3D7416527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4255BB32-8D64-461B-ADBF-8BD3D7416527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4255BB32-8D64-461B-ADBF-8BD3D7416527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3483A150-376E-42BA-AA01-621B57D219CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3483A150-376E-42BA-AA01-621B57D219CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3483A150-376E-42BA-AA01-621B57D219CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3483A150-376E-42BA-AA01-621B57D219CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{398D140B-E68F-404D-B757-47E724299A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{398D140B-E68F-404D-B757-47E724299A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{398D140B-E68F-404D-B757-47E724299A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398D140B-E68F-404D-B757-47E724299A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
