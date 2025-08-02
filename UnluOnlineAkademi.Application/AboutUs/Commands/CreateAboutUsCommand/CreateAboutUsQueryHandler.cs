@@ -10,7 +10,7 @@ using UnluOnlineAkademi.Domain.Interfaces;
 
 namespace UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand
 {
-    public class CreateAboutUsQueryHandler : IRequestHandler<CreateAboutUsCommand, CreateAboutUsDto>
+    public class CreateAboutUsQueryHandler : IRequestHandler<CreateAboutUsCommand, Guid>
     {
         private readonly IGenericRepository<Domain.Entities.AboutUs> _repository;
         private readonly IMapper _mapper;
@@ -20,12 +20,11 @@ namespace UnluOnlineAkademi.Application.AboutUs.Commands.CreateAboutUsCommand
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<CreateAboutUsDto> Handle(CreateAboutUsCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateAboutUsCommand request, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<UnluOnlineAkademi.Domain.Entities.AboutUs>(request);
             var createdData = await _repository.AddAsync(entity);
-            var dto = _mapper.Map<CreateAboutUsDto>(createdData);
-            return dto;
+            return createdData.ID;
         }
     }
 }

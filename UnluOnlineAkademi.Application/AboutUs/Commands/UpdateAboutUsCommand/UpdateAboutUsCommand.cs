@@ -1,13 +1,8 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnluOnlineAkademi.Application.AboutUs.Commands.UpdateAboutUsCommand
 {
-    public class UpdateAboutUsCommand : IRequest<UpdateAboutUsDto>
+    public class UpdateAboutUsCommand : IRequest<bool>
     {
         public Guid ID { get; set; }
         public string Title { get; set; }

@@ -38,30 +38,35 @@ namespace UnluOnlineAkademi.Api.Controller
 
         // POST api/AboutUs
         [HttpPost]
-        public async Task<ActionResult<CreateAboutUsDto>> Create([FromBody] CreateAboutUsCommand command, CancellationToken ct)
+        public async Task<IActionResult> Create([FromBody] CreateAboutUsCommand command, CancellationToken ct)
         {
-            var created = await _mediator.Send(command, ct);
-            // CreatedAtAction kullanarak 201 + Location header döner
-            return created;
+            var id = await _mediator.Send(command, ct);
+            return CreatedAtAction(nameof(GetById), new { id = id }, id);
         }
 
         // PUT api/AboutUs/{id}
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult<UpdateAboutUsDto>> Update(
+        public async Task<IActionResult> Update(
             Guid id,
             [FromBody] UpdateAboutUsCommand command,
             CancellationToken ct)
         {
             if (id != command.ID) return BadRequest("ID mismatch");
             var updated = await _mediator.Send(command, ct);
-            return Ok(updated);
+            if (!updated) return NotFound("İlgili kayıt bulunamadı");
+            return NoContent();
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<DeleteAboutUsDto>> Delete(Guid id, CancellationToken ct)
+        public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
         {
-            var result = await _mediator.Send(new DeleteAboutUsCommand { ID = id }, ct);
-            return Ok(result);
+            var command = new DeleteAboutUsCommand(id);
+            var result = await _mediator.Send(command, ct);
+            if (!result)
+            {
+                return NotFound("İlgili veri bulunamadı");
+            }
+            return NoContent();
         }
     }
 }
