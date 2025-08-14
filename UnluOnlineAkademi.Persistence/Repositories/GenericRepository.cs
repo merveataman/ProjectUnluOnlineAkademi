@@ -27,7 +27,7 @@ namespace UnluOnlineAkademi.Persistence.Repositories
             return entity;
         }
 
-        public async void DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
             var data = await _context.Set<T>().FirstOrDefaultAsync(x => x.ID == id && !x.IsDeleted);
             data.IsDeleted = true;

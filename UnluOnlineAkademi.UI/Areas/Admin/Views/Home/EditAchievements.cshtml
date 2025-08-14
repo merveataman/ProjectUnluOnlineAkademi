@@ -1,4 +1,4 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.AchievementsDto.UpdateAchievementsDto
 @{
     ViewData["Title"] = "EditAchievements";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -35,34 +35,34 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="form-label" for="comment">Başarı Açıklaması</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+                        <form asp-action="EditAchievements" asp-controller="Home" asp-area="Admin" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="comment">Başarı Açıklaması</label>
+                                    <input type="text" class="form-control" name="Title" value="@Model.Title">
+                                </div>
                             </div>
-                        </div>
 
-                        
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="form-label" for="first-name">Rakam</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="first-name">Rakam</label>
+                                    <input type="text" class="form-control" name="Number" value="@Model.Number">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-12">
-                            <div class="text-left mt-3">
-                                <button type="submit" class="btn btn-success">Kaydet</button>
-                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
+                            <div class="col-md-12">
+                                <div class="text-left mt-3">
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
+                                    <a href="/Admin/Home/Index" class="btn btn-danger">İptal</a>
+                                </div>
                             </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </section>
-        </div>
-        </form>
         </div>
     </section>
 

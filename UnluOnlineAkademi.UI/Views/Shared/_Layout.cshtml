@@ -23,5 +23,8 @@
     @await Component.InvokeAsync("_LayoutScriptsComponentPartial")
 
     @await Component.InvokeAsync("_LayoutWpBtnComponentPartial")
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

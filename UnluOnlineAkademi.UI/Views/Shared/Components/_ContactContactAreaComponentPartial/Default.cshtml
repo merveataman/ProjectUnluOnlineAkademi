@@ -1,4 +1,6 @@
-﻿<div id="contact" class="contact_area section-padding">
+﻿@model CreateHomeContactDto
+
+<div id="contact" class="contact_area section-padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
@@ -6,29 +8,34 @@
 					<h2>Bizimle İletişime Geçin</h2>
 				</div>
 				<div class="contact">
-					<form class="form" name="enq" method="post" action="contact.php" onsubmit="return validation();">
+					<form class="form" id="contactForm2" method="post" asp-action="Index" asp-controller="Contact">
 						<div class="row">
 							<div class="form-group col-md-6">
-								<label for="">İsim Soyisim</label>
-								<input type="text" name="name" class="form-control" required="required">
+								<label for="">İsim</label>
+								<input type="text" class="form-control" required="required" asp-for="Name">
 							</div>
 							<div class="form-group col-md-6">
+								<label for="">Soyisim</label>
+								<input type="text" class="form-control" required="required" asp-for="Surname">
+							</div>
+							<div class="form-group col-md-12">
 								<label for="">Emai Adresil</label>
-								<input type="email" name="email" class="form-control" required="required">
+								<input type="email" class="form-control" required="required" asp-for="EmailAddress">
 							</div>
 							<div class="form-group col-md-12">
 								<label for="">Konu</label>
-								<input type="text" name="subject" class="form-control" required="required">
+								<input type="text" class="form-control" required="required" asp-for="Topic">
 							</div>
 							<div class="form-group col-md-12">
 								<label for="">Mesaj</label>
-								<textarea rows="6" name="message" class="form-control" required="required"></textarea>
+								<textarea rows="6" class="form-control" required="required" asp-for="Message"></textarea>
 							</div>
 							<div class="col-md-12 text-center">
-								<button type="submit" value="Send message" name="submit" id="submitButton" class="btn_one" title="Submit Your Message!">Gönder</button>
+								<button type="submit" class="btn_one">Gönder</button>
 							</div>
 						</div>
 					</form>
+					<div id="contactResult2" style="margin-top:1rem;"></div>
 				</div>
 			</div><!-- END COL  -->
 			<div class="col-lg-5 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">

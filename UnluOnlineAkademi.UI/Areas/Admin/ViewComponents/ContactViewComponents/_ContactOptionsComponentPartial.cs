@@ -1,12 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using UnluOnlineAkademi.UI.DTOs.ContactDto;
 
 namespace UnluOnlineAkademi.UI.Areas.Admin.ViewComponents.ContactViewComponents
 {
     public class _ContactOptionsComponentPartial: ViewComponent
     {
+        private readonly IHttpClientFactory _httpClientFactory;
+        public _ContactOptionsComponentPartial(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var client = _httpClientFactory.CreateClient("ApiClient");
+            var response = await client.GetAsync("https://localhost:7287/api/ContactOptions");
+            if (!response.IsSuccessStatusCode)
+                return View("Error");
+
+            var json = await response.Content.ReadAsStringAsync();
+            var list = JsonConvert.DeserializeObject<List<ContactOptionDto>>(json);
+            return View(list);
         }
     }
 }
