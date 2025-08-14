@@ -1,4 +1,10 @@
-﻿<div class="col-xl-12">
+﻿@model List<CreateHomeContactDto>
+
+@{
+    int counter = 1;
+}
+
+<div class="col-xl-12">
     <section class="box ">
         <header class="panel_header">
             <h2 class="title float-left">Mesaj Listesi</h2>
@@ -12,95 +18,111 @@
                             <tr>
                                 <th>#</th>
                                 <th style="text-align: left;">Konu</th>
-                                <th style="text-align: left;">İsim Soyisim</th>
+                                <th style="text-align: left;">İsim</th>
+                                <th style="text-align: left;">Soyisim</th>
                                 <th style="text-align: left;">Mail Adresi</th>
                                 <th style="text-align: right;">Mesajı Gör</th>
                                 <th style="text-align: right;">Sil</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: right;">
-                                    <a data-toggle="modal" href="#ultraModal-7"><i style="font-size: 20px !important;" class="fa fa-eye text-warning"></i></a>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td style="text-align: left;">@item.Topic</td>
+                                    <td style="text-align: left;">@item.Name</td>
+                                    <td style="text-align: left;">@item.Surname</td>
+                                    <td style="text-align: left;">@item.EmailAddress</td>
+                                    <td style="text-align: right;">
+                                        <a data-toggle="modal" href="#ultraModal-7"><i style="font-size: 20px !important;" class="fa fa-eye text-warning"></i></a>
 
-                                    <!-- modal start -->
-                                    <div class="modal fade" id="ultraModal-7" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Mesaj</h4><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-
-                                                            <div class="form-group">
-                                                                <label for="field-1" class="control-label">İsim</label>
-
-                                                                <input type="text" class="form-control" id="field-1">
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="col-lg-6">
-
-                                                            <div class="form-group">
-                                                                <label for="field-2" class="control-label">Soyisim</label>
-
-                                                                <input type="text" class="form-control" id="field-2">
-                                                            </div>
-
-                                                        </div>
+                                        <!-- modal start -->
+                                        <div class="modal fade" id="ultraModal-7" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Mesaj</h4><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                     </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
 
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="field-1" class="control-label">İsim</label>
 
-                                                            <div class="form-group">
-                                                                <label for="field-4" class="control-label">Email Adres</label>
+                                                                    <input type="text" class="form-control" id="field-1">
+                                                                </div>
 
-                                                                <input type="text" class="form-control" id="field-4">
                                                             </div>
 
-                                                        </div>
+                                                            <div class="col-lg-6">
 
-                                                        <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="field-2" class="control-label">Soyisim</label>
 
-                                                            <div class="form-group">
-                                                                <label for="field-5" class="control-label">Konu</label>
+                                                                    <input type="text" class="form-control" id="field-2">
+                                                                </div>
 
-                                                                <input type="text" class="form-control" id="field-5">
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="col-lg-12">
-
-                                                            <div class="form-group">
-                                                                <label for="field-6" class="control-label">Mesaj</label>
-
-                                                                <textarea class="form-control mesaj-textarea" id="field-6" rows="6"></textarea>
                                                             </div>
                                                         </div>
+
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+
+                                                                <div class="form-group">
+                                                                    <label for="field-4" class="control-label">Email Adres</label>
+
+                                                                    <input type="text" class="form-control" id="field-4">
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+
+                                                                <div class="form-group">
+                                                                    <label for="field-5" class="control-label">Konu</label>
+
+                                                                    <input type="text" class="form-control" id="field-5">
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-lg-12">
+
+                                                                <div class="form-group">
+                                                                    <label for="field-6" class="control-label">Mesaj</label>
+
+                                                                    <textarea class="form-control mesaj-textarea" id="field-6" rows="6"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
                                                     </div>
-
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a class="btn btn-success" href="/Admin/Dashboard/AnswerMail">Cevapla</a>
+                                                    <div class="modal-footer">
+                                                        <a class="btn btn-success" href="/Admin/Dashboard/AnswerMail">Cevapla</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- modal end -->
+                                        <!-- modal end -->
 
-                                </td>
-                                <td style="text-align: right;"><a href="#"><i style="font-size: 20px !important;" class="fa fa-eraser text-danger"></i></a></td>
-                            </tr>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <form asp-action="DeleteMailList" asp-controller="Dashboard" asp-area="Admin" method="post" style="display:inline" onsubmit="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
+
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@item.ID" />
+
+                                            <button type="submit" class="btn btn-link p-0 m-0" title="Sil">
+                                                <i class="fa fa-eraser text-danger" style="font-size: 20px !important;"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                counter++;
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -1,4 +1,4 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.WhyUsDto.UpdateWhyUsDto
 @{
     ViewData["Title"] = "EditWhyUs";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -24,10 +24,7 @@
                 </div>
             </div>
         </div>
-
         <div class="clearfix"></div>
-
-
         <div class="col-12">
             <section class="box">
                 <header class="panel_header">
@@ -35,33 +32,27 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-
-                        <div class="col-md-12">
+                        <form asp-action="EditWhyUs" asp-controller="Home" asp-area="Admin" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
                             <div class="form-group">
-                                <label class="form-label" for="first-name">Başlık</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+                                <label class="form-label" for="">Başlık</label>
+                                <input type="text" class="form-control" name="Title" value="@Model.Title">
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-label" for="comment">Açıklama</label>
-                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
+                                <label class="form-label" for="">Açıklama</label>
+                                <textarea class="ckeditor" name="Desc" rows="10">@Model.Desc</textarea>
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="text-left mt-3">
-                                <button type="submit" class="btn btn-success">Kaydet</button>
-                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
+                            <div class="col-md-12">
+                                <div class="text-left mt-3">
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
+                                    <a href="/Admin/Home/Index" class="btn btn-danger">İptal</a>
+                                </div>
                             </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </section>
-        </div>
-        </form>
         </div>
     </section>
 

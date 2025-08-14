@@ -821,7 +821,7 @@ box-shadow:none;
 * ----------------------------------------------------------------------------------------
 */
 .home_bg {
-	background: url(../images/all-img/header.png);
+	/*background: url(../images/all-img/header.png);*/
 	height: 800px;
 	position: relative;
 	background-position: center;

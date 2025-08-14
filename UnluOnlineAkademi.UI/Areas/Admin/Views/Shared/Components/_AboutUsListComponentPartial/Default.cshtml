@@ -1,4 +1,5 @@
-﻿<div class="col-xl-12">
+﻿@model List<AboutUsByIdDto>
+<div class="col-xl-12">
     <section class="box ">
         <header class="panel_header">
             <h2 class="title float-left">Hakkımızda</h2>
@@ -12,22 +13,20 @@
                             <tr>
                                 <th>#</th>
                                 <th style="text-align: left;">Başlık</th>
-                                <th style="text-align: right;">Aktiflik</th>
+                                <th style="text-align: left;">İçerik</th>
                                 <th style="text-align: right;">Düzenle</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: right;">
-                                    <label class="switch">
-                                        <input type="checkbox" checked> <!-- checked: aktif -->
-                                        <span class="slider round"></span>
-                                    </label>
-                                </td>
-                                <td style="text-align: right;"><a href="/Admin/AboutUS/EditAboutUs"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td style="text-align: left;">@item.Title</td>
+                                    <td style="text-align: left;">@Html.Raw(item.Desc)</td>
+                                    <td style="text-align: right;"><a href="/Admin/AboutUS/EditAboutUs"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

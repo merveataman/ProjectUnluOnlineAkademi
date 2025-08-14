@@ -14,6 +14,13 @@ namespace UnluOnlineAkademi.Application.StudentTestimonial.Commands.UpdateStuden
     {
         private readonly IGenericRepository<Domain.Entities.StudentTestimonial> _repository;
         private readonly IMapper _mapper;
+
+        public UpdateStudentTestimonialCommandHandler(IGenericRepository<Domain.Entities.StudentTestimonial> repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
         public async Task<bool> Handle(UpdateStudentTestimonialCommand request, CancellationToken cancellationToken)
         {
             var existingEntity = await _repository.GetByIdAsync(request.ID);

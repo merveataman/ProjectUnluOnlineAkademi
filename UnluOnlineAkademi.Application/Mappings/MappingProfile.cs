@@ -39,6 +39,11 @@ using UnluOnlineAkademi.Application.EducationalContent.Commands.DeleteEducationa
 using UnluOnlineAkademi.Application.EducationalContent.Commands.UpdateEducationalContentCommand;
 using UnluOnlineAkademi.Application.EducationalContent.Queries.EducationalContentById;
 using UnluOnlineAkademi.Application.EducationalContent.Queries.EducationalContentGetList;
+using UnluOnlineAkademi.Application.Header.Commands.CreateHeaderCommand;
+using UnluOnlineAkademi.Application.Header.Commands.DeleteHeaderCommand;
+using UnluOnlineAkademi.Application.Header.Commands.UpdateHeaderCommand;
+using UnluOnlineAkademi.Application.Header.Queries.HeaderById;
+using UnluOnlineAkademi.Application.Header.Queries.HeaderList;
 using UnluOnlineAkademi.Application.MailList.Commands.CreateMailListCommand;
 using UnluOnlineAkademi.Application.MailList.Commands.DeleteMailListCommand;
 using UnluOnlineAkademi.Application.MailList.Commands.UpdateMailListCommand;
@@ -64,6 +69,7 @@ using UnluOnlineAkademi.Application.WhyUs.Commands.DeleteWhyUsCommand;
 using UnluOnlineAkademi.Application.WhyUs.Commands.UpdateWhyUsCommand;
 using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsById;
 using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsList;
+using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsTop6List;
 using UnluOnlineAkademi.Domain.Entities;
 
 namespace UnluOnlineAkademi.Application.Mappings
@@ -125,6 +131,7 @@ namespace UnluOnlineAkademi.Application.Mappings
             CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, CreateWhyUsCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, UpdateWhyUsCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, DeleteWhyUsCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.WhyUs, WhyUsDto>().ReverseMap();
 
             CreateMap<UnluOnlineAkademi.Domain.Entities.StudentTestimonial, StudentTestimonialDto>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.StudentTestimonial, StudentTestimonialByIdDto>().ReverseMap();
@@ -150,6 +157,13 @@ namespace UnluOnlineAkademi.Application.Mappings
             CreateMap<UnluOnlineAkademi.Domain.Entities.MailList, CreateMailListCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.MailList, UpdateMailListCommand>().ReverseMap();
             CreateMap<UnluOnlineAkademi.Domain.Entities.MailList, DeleteMailListCommand>().ReverseMap();
+
+
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Header, HeaderDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Header, HeaderByIdDto>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Header, CreateHeaderCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Header, UpdateHeaderCommand>().ReverseMap();
+            CreateMap<UnluOnlineAkademi.Domain.Entities.Header, DeleteHeaderCommand>().ReverseMap();
         }
     }
 }

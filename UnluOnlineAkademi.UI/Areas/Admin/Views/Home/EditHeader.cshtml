@@ -1,5 +1,9 @@
-﻿@{
-    ViewData["Title"] = "EditHeader";
+﻿@model UnluOnlineAkademi.UI.DTOs.HomeHeaderDto.UpdateHomeHeaderDto
+@{
+    // ViewData["Title"] = "EditHeader";
+    // Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Header Listesi";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -34,46 +38,32 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
+                        <form asp-action="EditHeader" asp-controller="Home" asp-area="Admin" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
 
-                        <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-label" for="field-1">Header Görseli</label>
-                                <span class="desc"></span>
-                                <div class="controls">
-                                    <input type="file" class="form-control" id="field-5">
-                                </div>
+                                <label>Görsel Seç (Yeniden yüklemek istersen)</label>
+                                <input type="file" name="imageFile" class="form-control" />
                             </div>
-                        </div>
 
-                        <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-label" for="first-name">Slogan</label>
-                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
+                                <label>Slogan</label>
+                                <textarea class="ckeditor" name="Slogan">@Model.Slogan</textarea>
                             </div>
-                        </div>
 
-                        <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-label" for="comment">Açıklama</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+                                <label>Açıklama</label>
+                                <input type="text" name="Desc" class="form-control" value="@Model.Desc" />
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="text-left mt-3">
-                                <button type="submit" class="btn btn-success">Kaydet</button>
-                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
-                            </div>
-                        </div>
-
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                        </form>
                     </div>
+
                 </div>
             </section>
         </div>
-        </form>
-        </div>
     </section>
-
 </section>
 
 <!-- JS SCRIPTS -->
