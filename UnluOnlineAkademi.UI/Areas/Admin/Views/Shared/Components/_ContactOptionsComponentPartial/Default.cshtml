@@ -1,4 +1,10 @@
-﻿<div class="col-xl-12">
+﻿@model List<ContactOptionDto>
+
+@{
+    int counter = 1;
+}
+
+<div class="col-xl-12">
     <section class="box ">
         <header class="panel_header">
             <h2 class="title float-left">İletişim Seçenekleri</h2>
@@ -21,18 +27,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td style="text-align: left;">Telefon</td>
-                                <td style="text-align: right;">
-                                    <label class="switch">
-                                        <input type="checkbox" checked> <!-- checked: aktif -->
-                                        <span class="slider round"></span>
-                                    </label>
-                                </td>
-                                <td style="text-align: right;"><a href="/Admin/Contact/EditContactType"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
-                                <td style="text-align: right;"><a href="#"><i style="font-size: 20px !important;" class="fa fa-eraser text-danger"></i></a></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td style="text-align: left;">@item.Title</td>
+                                    <td style="text-align: right;">
+                                        <label class="switch">
+                                            <input type="checkbox" checked="@(item.Status)">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </td>
+                                    <td style="text-align: right;"><a href="/Admin/Contact/EditContactType"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
+                                    <td style="text-align: right;">
+                                        <form asp-action="DeleteContactType" asp-controller="Contact" asp-area="Admin" method="post" style="display:inline" onsubmit="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
+
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@item.ID" />
+
+                                            <button type="submit" class="btn btn-link p-0 m-0" title="Sil">
+                                                <i class="fa fa-eraser text-danger" style="font-size: 20px !important;"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                counter++;
+                            }
                         </tbody>
                     </table>
                 </div>

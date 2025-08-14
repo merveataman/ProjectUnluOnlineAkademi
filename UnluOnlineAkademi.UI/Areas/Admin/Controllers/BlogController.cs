@@ -9,6 +9,7 @@ namespace UnluOnlineAkademi.UI.Areas.Admin.Controllers
         {
             return View();
         }
+        //
         public IActionResult AddBlog()
         {
             return View();

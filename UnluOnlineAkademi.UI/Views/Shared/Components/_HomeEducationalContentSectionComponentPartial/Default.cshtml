@@ -1,75 +1,25 @@
-﻿<section class="marketing_content_area section-padding">
+﻿@model List<EducationalContentListDto>
+<section class="marketing_content_area section-padding">
     <div class="container">
         <div class="section-title">
             <p>Ders İçerikleri</p>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-book ss_one"></span>
-                        <h2><a href="single-service.html" target="_blank">Video Dersler</a></h2>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+                    <div class="single_feature_one">
+                        <div class="sf_top">
+                            <span class="@item.Icon"></span>
+                            <h2><a href="single-service.html" target="_blank">@item.Title</a></h2>
+                        </div>
+                        <p>
+                            @item.Desc
+                        </p>
                     </div>
-                    <p>
-                        Konu anlatımı videoları (anlaşılır, net ve görsel destekli).
-                    </p>
                 </div>
-            </div><!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-heart ss_two"></span>
-                        <h2><a href="single-service.html" target="_blank">PDF Ders Notları</a></h2>
-                    </div>
-                    <p>
-                        Videoları destekleyici, yazılı ve özet ders notları.
-                    </p>
-                </div>
-            </div><!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-user ss_three"></span>
-                        <h2><a href="single-service.html" target="_blank">Örnek Sorular ve Çözümleri</a></h2>
-                    </div>
-                    <p>
-                        Konuyu pekiştirici, farklı zorluk seviyelerinde çözümlü örnekler.
-                    </p>
-                </div>
-            </div><!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-eye ss_four"></span>
-                        <h2><a href="single-service.html" target="_blank">Alıştırmalar/Etkinlikler</a></h2>
-                    </div>
-                    <p>
-                        Öğrencinin konuyu uygulamalı olarak pekiştirebileceği interaktif alıştırmalar
-                    </p>
-                </div>
-            </div><!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-light-bulb ss_five"></span>
-                        <h2><a href="single-service.html" target="_blank">Konu Testleri ve Quizler</a></h2>
-                    </div>
-                    <p>
-                        Her konu sonunda öğrencinin bilgisini ölçebileceği kısa testler.
-                    </p>
-                </div>
-            </div><!-- END COL -->
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" data-wow-offset="0">
-                <div class="single_feature_one">
-                    <div class="sf_top">
-                        <span class="ti-email ss_six"></span>
-                        <h2><a href="single-service.html" target="_blank">Deneme Sınavları</a></h2>
-                    </div>
-                    <p>
-                        Dönem sonu veya sınavlara yönelik genel deneme sınavları.
-                    </p>
-                </div>
-            </div><!-- END COL -->
+                <!-- END COL -->
+            }
         </div><!-- END ROW -->
     </div><!-- END CONTAINER -->
 </section>

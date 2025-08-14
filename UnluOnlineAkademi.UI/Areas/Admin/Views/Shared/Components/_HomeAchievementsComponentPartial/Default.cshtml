@@ -1,4 +1,10 @@
-﻿<div class="col-xl-12">
+﻿@model List<AchievementsListDto>
+
+@{
+    int counter = 1;
+}
+
+<div class="col-xl-12">
     <section class="box ">
         <header class="panel_header d-flex justify-content-between align-items-center">
             <h2 class="title float-left" style="display: inline-block; margin-right: 8px;">
@@ -53,18 +59,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: left;">25</td>
-                                <td style="text-align: right;">
-                                    <label class="switch">
-                                        <input type="checkbox" checked> <!-- checked: aktif -->
-                                        <span class="slider round"></span>
-                                    </label>
-                                </td>
-                                <td style="text-align: right;"><a href="/Admin/Home/EditAchievements"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td style="text-align: left;">@item.Title</td>
+                                    <td style="text-align: left;">@item.Number</td>
+                                    <td style="text-align: right;">
+                                        <label class="switch">
+                                            <input type="checkbox" checked="@(item.Status)">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </td>
+                                    <td style="text-align: right;"><a href="/Admin/Home/EditAchievements/@item.ID"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
+                                </tr>
+                                counter++;
+                            }
                         </tbody>
                     </table>
                 </div>

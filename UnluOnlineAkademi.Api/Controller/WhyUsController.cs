@@ -6,6 +6,7 @@ using UnluOnlineAkademi.Application.WhyUs.Commands.DeleteWhyUsCommand;
 using UnluOnlineAkademi.Application.WhyUs.Commands.UpdateWhyUsCommand;
 using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsById;
 using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsList;
+using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsTop6List;
 
 namespace UnluOnlineAkademi.Api.Controller
 {
@@ -34,6 +35,13 @@ namespace UnluOnlineAkademi.Api.Controller
             var dto = await _mediator.Send(new WhyUsByIdQuery { ID = id }, ct);
             if (dto == null) return NotFound();
             return Ok(dto);
+        }
+
+        [HttpGet("last-six")]
+        public async Task<ActionResult<List<WhyUsDto>>> GetLastSix(CancellationToken ct)
+        {
+            var items = await _mediator.Send(new WhyUsTop6ListQuery(), ct);
+            return Ok(items);
         }
 
         // POST api/WhyUs

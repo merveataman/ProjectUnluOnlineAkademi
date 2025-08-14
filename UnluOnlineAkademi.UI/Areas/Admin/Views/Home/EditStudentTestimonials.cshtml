@@ -1,4 +1,4 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.StudentTestimonialDto.UpdateStudentTestimonial
 @{
     ViewData["Title"] = "EditStudentTestimonials";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -35,45 +35,48 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
+                        <form asp-action="EditStudentTestimonials" asp-controller="Home" asp-area="Admin" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-label" for="first-name">Öğrenci İsim</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+                                    <input type="text" class="form-control" name="Name" value="@Model.Name">
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-label" for="last-name">Öğrenci Soyisim</label>
-                                <input type="text" class="form-control" id="last-name" name="lastName">
+                                    <input type="text" class="form-control" name="Surname" value="@Model.Surname">
                             </div>
                         </div>
 
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="form-label" for="program">Katıldığı Eğitim</label>
-                                <input type="text" class="form-control" id="program" name="program">
+                                    <input type="text" class="form-control" name="Education" value="@Model.Education">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="form-label" for="comment">Öğrenci Yorumu</label>
-                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
+                                <textarea class="ckeditor" name="Testimonial" rows="10">@Model.Testimonial</textarea>
                             </div>
                         </div>
 
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="form-label" for="rating">Puan</label>
-                                <select class="form-control" id="rating" name="rating">
-                                    <option value="1">1 - Çok Kötü</option>
-                                    <option value="2">2 - Kötü</option>
-                                    <option value="3">3 - Orta</option>
-                                    <option value="4">4 - İyi</option>
-                                    <option value="5">5 - Mükemmel</option>
-                                </select>
+                                    <select class="form-control" name="Rate">
+                                        <option value="1" @(Model.Rate == 1 ? "selected" : "")>1 - Çok Kötü</option>
+                                        <option value="2" @(Model.Rate == 2 ? "selected" : "")>2 - Kötü</option>
+                                        <option value="3" @(Model.Rate == 3 ? "selected" : "")>3 - Orta</option>
+                                        <option value="4" @(Model.Rate == 4 ? "selected" : "")>4 - İyi</option>
+                                        <option value="5" @(Model.Rate == 5 ? "selected" : "")>5 - Mükemmel</option>
+                                    </select>
                             </div>
                         </div>
 
@@ -83,12 +86,11 @@
                                 <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
                             </div>
                         </div>
+                        </form>
 
                     </div>
                 </div>
             </section>
-        </div>
-        </form>
         </div>
     </section>
 
