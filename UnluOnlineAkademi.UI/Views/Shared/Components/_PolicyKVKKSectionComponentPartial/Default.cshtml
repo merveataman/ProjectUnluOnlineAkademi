@@ -1,73 +1,12 @@
-﻿<section class="blog-page section-padding">
+﻿@model PoliciesByIdDto
+<section class="blog-page section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-sm-12 col-xs-12">
                 <div class="arti_single">
                     <div class="arti_content ">
                         <section>
-                            <p><strong>Ünlü Online Akademi</strong> olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca kişisel verilerinizin güvenliğine önem veriyoruz. Bu kapsamda, kişisel verilerinizin toplanması, işlenmesi, saklanması ve paylaşılması süreçleri hakkında sizleri bilgilendirmek isteriz.</p>
-                        </section>
-
-                        <section>
-                            <h4>1. Veri Sorumlusu</h4>
-                            <p>KVKK uyarınca, kişisel verileriniz <strong>Ünlü Online Akademi</strong> tarafından veri sorumlusu sıfatıyla işlenmektedir.</p>
-                        </section>
-
-                        <section>
-                            <h4>2. İşlenen Kişisel Veriler</h4>
-                            <p>Sitemizi ziyaret etmeniz halinde aşağıdaki kişisel veriler işlenebilir:</p>
-                            <ul>
-                                <li>İletişim Formu aracılığıyla sağlanan ad, soyad, e-posta adresi</li>
-                                <li>İsteğe bağlı olarak gönderilen mesaj içerikleri</li>
-                                <li>IP adresi ve çerez verileri (site kullanım bilgisi)</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4>3. Kişisel Verilerin İşlenme Amaçları</h4>
-                            <p>Toplanan kişisel veriler aşağıdaki amaçlarla işlenmektedir:</p>
-                            <ul>
-                                <li>Size geri dönüş sağlamak</li>
-                                <li>Hizmet kalitesini artırmak</li>
-                                <li>İstatistiksel analiz yapmak</li>
-                                <li>Yasal yükümlülüklerin yerine getirilmesi</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4>4. Kişisel Verilerin Aktarımı</h4>
-                            <p>Kişisel verileriniz, yasal zorunluluklar dışında üçüncü kişilerle paylaşılmamaktadır. Ancak gerekli hallerde hizmet sağlayıcı firmalarla (barındırma hizmeti, e-posta sunucusu vb.) gizlilik sözleşmesi kapsamında paylaşılabilir.</p>
-                        </section>
-
-                        <section>
-                            <h4>5. Kişisel Verilerin Toplanma Yöntemi</h4>
-                            <p>Veriler, doğrudan siz kullanıcılarımız tarafından iletişim formları, e-posta veya site kullanımı yoluyla elektronik ortamda toplanmaktadır.</p>
-                        </section>
-
-                        <section>
-                            <h4>6. KVKK Kapsamındaki Haklarınız</h4>
-                            <p>KVKK’nın 11. maddesi kapsamında kişisel verilerinizle ilgili olarak aşağıdaki haklara sahipsiniz:</p>
-                            <ul>
-                                <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
-                                <li>İşlenmişse buna ilişkin bilgi talep etme</li>
-                                <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</li>
-                                <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme</li>
-                                <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme</li>
-                                <li>KVKK'ya aykırı olarak işlenmişse silinmesini veya yok edilmesini isteme</li>
-                                <li>Düzeltme, silme veya yok edilmenin, verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
-                                <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi sonucunda aleyhe bir sonucun çıkmasına itiraz etme</li>
-                                <li>Kanuna aykırı işlenmeden dolayı zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h4>7. İletişim</h4>
-                            <p>Yukarıda belirtilen haklarınızı kullanmak için bizimle aşağıdaki iletişim adresinden irtibata geçebilirsiniz:</p>
-                            <p>
-                                <strong>E-posta:</strong> unluonlineakademi@gmail.com<br>
-                                <strong>Web Sitesi:</strong> www.unluonlineakademi.com<br />
-                                <strong>Telefon Numaraları:</strong> 0505 055 5850 -  0505 055 5850
-                            </p>
+                           @Html.Raw(Model.Desc)
                         </section>
                     </div>
                 </div><!-- END ARTI SINGLE  -->

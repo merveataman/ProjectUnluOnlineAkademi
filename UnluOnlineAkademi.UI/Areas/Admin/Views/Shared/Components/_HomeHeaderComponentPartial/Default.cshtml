@@ -1,4 +1,10 @@
-﻿<div class="col-xl-12">
+﻿@model List<HomeHeaderDto>
+
+@{
+    int counter = 1;
+}
+
+<div class="col-xl-12">
     <section class="box ">
         <header class="panel_header">
             <h2 class="title float-left">Header</h2>
@@ -14,24 +20,21 @@
                                 <th style="text-align: left;">Görsel</th>
                                 <th style="text-align: left;">Slogan</th>
                                 <th style="text-align: left;">Açıklama</th>
-                                <th style="text-align: right;">Aktiflik</th>
                                 <th style="text-align: right;">Düzenle</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td style="text-align: left;"><img style="width:30px;" src="/admin-template/data/profile/profile-blog.jpg" /></td>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: left;">Mark</td>
-                                <td style="text-align: right;">
-                                    <label class="switch">
-                                        <input type="checkbox" checked> <!-- checked: aktif -->
-                                        <span class="slider round"></span>
-                                    </label>
-                                </td>
-                                <td style="text-align: right;"><a href="/Admin/Home/EditHeader"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@counter</th>
+                                    <td style="text-align: left;"><img style="width:30px;" src="@item.CoverImage" /></td>
+                                    <td style="text-align: left;">@Html.Raw(item.Slogan)</td>
+                                    <td style="text-align: left;">@item.Desc</td>
+                                    <td style="text-align: right;"><a href="/Admin/Home/EditHeader/@item.ID"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
+                                </tr>
+                                counter++;
+                            }
                         </tbody>
                     </table>
                 </div>

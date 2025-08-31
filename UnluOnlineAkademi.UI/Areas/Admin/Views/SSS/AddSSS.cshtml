@@ -1,4 +1,4 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.SSSDto.CreateSSSDto
 @{
     ViewData["Title"] = "AddSSS";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -44,42 +44,29 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-                        <form action="#" method="post">
+                        <form class="form" id="SSS2" method="post" asp-action="AddSSS" asp-controller="Home" asp-area="Admin">
 
                             <div class="col-xl-12 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="form-group">
-                                    <label class="form-label" for="field-1">Soru</label>
-                                    <span class="desc"></span>
-                                    <div class="controls">
-                                        <input type="text" value="" class="form-control" id="field-1">
-                                    </div>
+                                    <label class="form-label" for="">Soru</label>
+                                    <input type="text" class="form-control" asp-for="Quetion" name="Quetion" required>
                                 </div>
                             </div>
 
                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="field-5">Cevap</label>
+                                    <label class="form-label" for="">Cevap</label>
                                     <span class="desc"></span>
-                                    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10"></textarea><br>
-                                </div>
-
-                                <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
-                                    <div class="form-group">
-                                        <label class="form-label" for="field-5">Status</label>
-                                        <span class="desc"></span>
-                                        <select class="form-control">
-                                            <option>Aktif</option>
-                                            <option>Pasif</option>
-                                        </select>
-                                    </div>
+                                    <textarea class="form-control" asp-for="Answer" name="Answer" rows="10" required></textarea> <br />
                                 </div>
 
                                 <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                     <div class="text-left">
-                                        <button type="button" class="btn btn-success">Kaydet</button>
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
                                         <button type="button" class="btn btn-danger">İptal </button>
                                     </div>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -92,4 +79,18 @@
 <script src="~/admin-template/assets/plugins/datepicker/js/datepicker.js" type="text/javascript"></script>
 <script src="~/admin-template/assets/plugins/autosize/autosize.min.js" type="text/javascript"></script>
 <script src="~/admin-template/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
-<script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END --> 
+<script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+<script>
+    $(document).ready(function () {
+        // CKEditor'ı başlat
+        CKEDITOR.replace('Answer');
+    });
+
+    $('#SSS2').on('submit', function (e) {
+        // CKEditor içeriğini güncelle
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
+        }
+    });
+</script>

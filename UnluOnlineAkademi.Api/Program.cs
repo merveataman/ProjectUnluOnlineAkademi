@@ -7,6 +7,8 @@ using UnluOnlineAkademi.Application.ContactOptions.Queries.ContactOptionsGetList
 using UnluOnlineAkademi.Application.CourseCategory.Queries.CourseCategoryGetList;
 using UnluOnlineAkademi.Application.CourseLessons.Queries.CourseLessonsGetList;
 using UnluOnlineAkademi.Application.EducationalContent.Queries.EducationalContentGetList;
+using UnluOnlineAkademi.Application.Header.Queries.HeaderList;
+using UnluOnlineAkademi.Application.MailList.Queries.MailListList;
 using UnluOnlineAkademi.Application.Mappings;
 using UnluOnlineAkademi.Application.Policies.Queries.PoliciesList;
 using UnluOnlineAkademi.Application.SSS.Queries.SSSList;
@@ -36,6 +38,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetWh
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetStudentTestimonialListQueryHandler).Assembly));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetSSSListQueryHandler).Assembly));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetPoliciesListQueryHandler).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(HeaderListQuery).Assembly));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetMailListListQuery).Assembly));
 
 builder.Services.AddControllers();

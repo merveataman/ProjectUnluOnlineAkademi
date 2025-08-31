@@ -29,6 +29,7 @@ namespace UnluOnlineAkademi.Persistence.Context
         public DbSet<ContactOptionInfos> ContactOptionInfos { get; set; }
         public DbSet<SSS> SSS { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<Header> Headers { get; set; }
         //public DbSet<HomeSection> HomeSections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -46,6 +47,7 @@ namespace UnluOnlineAkademi.Persistence.Context
             modelBuilder.Entity<ContactInfos>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<SSS>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<AboutUs>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Header>().HasQueryFilter(x => !x.IsDeleted);
 
             base.OnModelCreating(modelBuilder);
         }

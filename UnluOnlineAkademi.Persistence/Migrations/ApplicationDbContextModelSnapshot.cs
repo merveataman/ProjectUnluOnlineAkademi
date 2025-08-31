@@ -197,7 +197,6 @@ namespace UnluOnlineAkademi.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Icon")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
@@ -340,6 +339,43 @@ namespace UnluOnlineAkademi.Persistence.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("EducationalContents");
+                });
+
+            modelBuilder.Entity("UnluOnlineAkademi.Domain.Entities.Header", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Slogan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Headers");
                 });
 
             modelBuilder.Entity("UnluOnlineAkademi.Domain.Entities.MailList", b =>

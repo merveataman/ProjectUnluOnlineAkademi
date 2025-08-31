@@ -5,6 +5,9 @@ using UnluOnlineAkademi.Application.Blog.Commands.DeleteBlogCommand;
 using UnluOnlineAkademi.Application.Blog.Commands.UpdateBlogCommand;
 using UnluOnlineAkademi.Application.Blog.Queries.BlogById;
 using UnluOnlineAkademi.Application.Blog.Queries.BlogGetList;
+using UnluOnlineAkademi.Application.Blog.Queries.WhyUsTop6List;
+using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsList;
+using UnluOnlineAkademi.Application.WhyUs.Queries.WhyUsTop6List;
 
 namespace UnluOnlineAkademi.Api.Controller
 {
@@ -34,6 +37,14 @@ namespace UnluOnlineAkademi.Api.Controller
             var dto = await _mediator.Send(new BlogByIdQuery { ID = id }, ct);
             if (dto == null) return NotFound();
             return Ok(dto);
+        }
+
+
+        [HttpGet("last-three")]
+        public async Task<ActionResult<List<BlogDto>>> GetLastThree(CancellationToken ct)
+        {
+            var items = await _mediator.Send(new BlogTop6ListQuery(), ct);
+            return Ok(items);
         }
 
         // POST api/Blog

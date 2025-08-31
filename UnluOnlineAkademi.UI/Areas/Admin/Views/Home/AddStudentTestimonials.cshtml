@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UnluOnlineAkademi.UI.DTOs.StudentTestimonialDto.CreateStudentTestimonialDto
+@{
     ViewData["Title"] = "AddStudentTestimonials";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -33,68 +34,82 @@
                     <h2 class="title float-left">Öğrenci Yorumları</h2>
                 </header>
                 <div class="content-body">
-                    <div class="row">
+                    <form class="form" id="student2" method="post" asp-action="AddStudentTestimonials" asp-controller="Home" asp-area="Admin">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="">Öğrenci İsim</label>
+                                    <input type="text" class="form-control" asp-for="Name" name="Name" required>
+                                </div>
+                            </div>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="form-label" for="first-name">Öğrenci İsim</label>
-                                <input type="text" class="form-control" id="first-name" name="firstName">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="">Öğrenci Soyisim</label>
+                                    <input type="text" class="form-control" asp-for="Surname" name="Surname" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="form-label" for="">Katıldığı Eğitim</label>
+                                    <input type="text" class="form-control" asp-for="Education" name="Education" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="">Öğrenci Yorumu</label>
+                                    <textarea class="form-control" asp-for="Testimonial" name="Testimonial" rows="10" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="form-label" for="">Puan</label>
+                                    <select class="form-control" asp-for="Rate" name="Rate" required>
+                                        <option value="">Puan Seçiniz</option>
+                                        <option value="1">1 - Çok Kötü</option>
+                                        <option value="2">2 - Kötü</option>
+                                        <option value="3">3 - Orta</option>
+                                        <option value="4">4 - İyi</option>
+                                        <option value="5">5 - Mükemmel</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="text-left mt-3">
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
+                                    <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="form-label" for="last-name">Öğrenci Soyisim</label>
-                                <input type="text" class="form-control" id="last-name" name="lastName">
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label class="form-label" for="program">Katıldığı Eğitim</label>
-                                <input type="text" class="form-control" id="program" name="program">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="form-label" for="comment">Öğrenci Yorumu</label>
-                                <textarea class="ckeditor" id="comment" name="comment" rows="10"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label class="form-label" for="rating">Puan</label>
-                                <select class="form-control" id="rating" name="rating">
-                                    <option value="1">1 - Çok Kötü</option>
-                                    <option value="2">2 - Kötü</option>
-                                    <option value="3">3 - Orta</option>
-                                    <option value="4">4 - İyi</option>
-                                    <option value="5">5 - Mükemmel</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="text-left mt-3">
-                                <button type="submit" class="btn btn-success">Kaydet</button>
-                                <a href="/Admin/StudentTestimonials/Index" class="btn btn-danger">İptal</a>
-                            </div>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
             </section>
         </div>
-        </form>
         </div>
     </section>
 
 </section>
 
 <!-- JS SCRIPTS -->
-<script src="~/admin-template/assets/plugins/datepicker/js/datepicker.js"></script>
-<script src="~/admin-template/assets/plugins/autosize/autosize.min.js"></script>
-<script src="~/admin-template/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
-<script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js"></script>
+    <script src="~/admin-template/assets/plugins/datepicker/js/datepicker.js"></script>
+    <script src="~/admin-template/assets/plugins/autosize/autosize.min.js"></script>
+    <script src="~/admin-template/assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="~/admin-template/assets/plugins/ckeditor/ckeditor.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // CKEditor'ı başlat
+        CKEDITOR.replace('Testimonial');
+    });
+
+    $('#student2').on('submit', function (e) {
+        // CKEditor içeriğini güncelle
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
+        }
+    });
+</script>

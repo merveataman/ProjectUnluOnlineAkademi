@@ -12,7 +12,10 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnluOnlineAkademi.Application\UnluOnlineAkademi.Application.csproj" />
   </ItemGroup>
 
 </Project>

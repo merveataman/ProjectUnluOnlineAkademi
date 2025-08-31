@@ -1,11 +1,11 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.ContactDto.CreateContactOptionDto
 @{
     ViewData["Title"] = "AddContactType";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
-<link href="" ~ /admin-template/assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen" />        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+<link href="~/admin-template/assets/plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen" />        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 <section id="main-content" class=" ">
     <section class="wrapper main-wrapper" style=''>
@@ -43,32 +43,18 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-                        <form action="#" method="post">
+                        <form class="form" id="contactoption2" method="post" asp-action="AddContactType" asp-controller="Contact" asp-area="Admin">
 
                             <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="form-group">
-                                    <label class="form-label" for="field-1">İletişim Seçeneği</label>
-                                    <span class="desc"></span>
-                                    <div class="controls">
-                                        <input type="text" value="" class="form-control" id="field-1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
-                                <div class="form-group">
-                                    <label class="form-label" for="field-5">İletişim Seçeneği Status</label>
-                                    <span class="desc"></span>
-                                    <select class="form-control">
-                                        <option>Aktif</option>
-                                        <option>Pasif</option>
-                                    </select>
+                                    <label class="form-label" for="">İletişim Seçeneği</label>
+                                    <input type="text" class="form-control" asp-for="Title" name="Title" required>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="text-left">
-                                    <button type="button" class="btn btn-success">Kaydet</button>
-                                    <button type="button" class="btn btn-danger">İptal </button>
+                                    <button type="submit" class="btn btn-success">Kaydet</button>
+                                    <a href="/Admin/Contact/Index" class="btn btn-danger">İptal</a>
                                 </div>
                             </div>
                         </form>
