@@ -1,4 +1,4 @@
-﻿
+﻿@model UnluOnlineAkademi.UI.DTOs.SSSDto.UpdateSSSDto
 @{
     ViewData["Title"] = "EditSSS";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -43,30 +43,27 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-                        <form action="#" method="post">
-
+                        <form asp-action="EditSSS" asp-controller="SSS" asp-area="Admin" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
                             <div class="col-xl-12 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="form-group">
-                                    <label class="form-label" for="field-1">Soru</label>
-                                    <span class="desc"></span>
-                                    <div class="controls">
-                                        <input type="text" value="" class="form-control" id="field-1">
-                                    </div>
+                                    <label class="form-label" for="">Soru</label>
+                                    <input type="text" class="form-control" name="Quetion" value="@Model.Quetion">
                                 </div>
                             </div>
 
                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label class="form-label" for="field-5">Cevap</label>
-                                    <span class="desc"></span>
-                                    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10"> </textarea><br>
+                                    <textarea class="ckeditor" cols="80" name="Answer" rows="10">@Model.Answer</textarea><br>
                                 </div>
                             </div>
 
                             <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                     <div class="text-left">
-                                        <button type="button" class="btn btn-success">Kaydet</button>
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
                                         <button type="button" class="btn btn-danger">İptal </button>
                                     </div>
                                 </div>

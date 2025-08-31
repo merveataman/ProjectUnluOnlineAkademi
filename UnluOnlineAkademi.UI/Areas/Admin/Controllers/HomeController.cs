@@ -84,11 +84,8 @@ namespace UnluOnlineAkademi.UI.Areas.Admin.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                TempData["Success"] = "Header başarıyla güncellendi.";
                 return RedirectToAction("Index", "Home", new { area = "Admin" });
             }
-
-            TempData["Error"] = "Güncelleme sırasında bir hata oluştu.";
             return View(dto);
         }
 
@@ -244,5 +241,50 @@ namespace UnluOnlineAkademi.UI.Areas.Admin.Controllers
             TempData["Error"] = "Güncelleme sırasında bir hata oluştu.";
             return View(dto);
         }
+
+
+
+
+
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> ToggleWhyUsStatus([FromBody] ToggleStatusVm vm)
+        //{
+        //    var client = httpClientFactory.CreateClient();
+
+        //    // Mevcut veriyi çek
+        //    var getResponse = await client.GetAsync($"https://localhost:7287/api/WhyUs/{vm.Id}");
+        //    if (!getResponse.IsSuccessStatusCode)
+        //        return BadRequest("Mevcut veri alınamadı");
+
+        //    var jsonData = await getResponse.Content.ReadAsStringAsync();
+        //    var dto = JsonConvert.DeserializeObject<UpdateWhyUsDto>(jsonData);
+
+        //    if (dto == null)
+        //        return NotFound("Kayıt bulunamadı");
+
+        //    // Sadece status güncelle
+        //    dto.Status = vm.Status;
+        //    dto.Date = DateTime.Now;
+
+        //    var putJson = JsonConvert.SerializeObject(dto);
+        //    var content = new StringContent(putJson, Encoding.UTF8, "application/json");
+
+        //    var updateResponse = await client.PutAsync($"https://localhost:7287/api/WhyUs/{dto.ID}", content);
+
+        //    if (!updateResponse.IsSuccessStatusCode)
+        //        return StatusCode((int)updateResponse.StatusCode);
+
+        //    return Ok();
+        //}
+
+        //public class ToggleStatusVm
+        //{
+        //    public Guid Id { get; set; }
+        //    public bool Status { get; set; }
+        //}
+
     }
 }

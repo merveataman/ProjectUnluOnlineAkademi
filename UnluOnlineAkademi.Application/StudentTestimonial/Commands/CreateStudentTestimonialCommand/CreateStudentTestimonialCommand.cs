@@ -15,6 +15,7 @@ namespace UnluOnlineAkademi.Application.StudentTestimonial.Commands.CreateStuden
         public string? Education { get; set; }
         public string? Testimonial { get; set; }
         public int? Rate { get; set; }
+        public bool Status { get; set; }
         public DateTime? Date { get; set; }
     }
 }

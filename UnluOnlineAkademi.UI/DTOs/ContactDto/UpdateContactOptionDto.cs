@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace UnluOnlineAkademi.Application.ContactOptions.Commands.UpdateContactOptionsCommand
+﻿namespace UnluOnlineAkademi.UI.DTOs.ContactDto
 {
-    public class UpdateContactOptionsCommand:IRequest<bool>
+    public class UpdateContactOptionDto
     {
         public Guid ID { get; set; }
         public string Title { get; set; }
