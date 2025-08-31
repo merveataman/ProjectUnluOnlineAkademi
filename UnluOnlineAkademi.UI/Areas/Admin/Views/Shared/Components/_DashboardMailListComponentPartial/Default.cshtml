@@ -22,6 +22,7 @@
                                 <th style="text-align: left;">Soyisim</th>
                                 <th style="text-align: left;">Mail Adresi</th>
                                 <th style="text-align: right;">Mesajı Gör</th>
+                                <th style="text-align: right;">Cevapla</th>
                                 <th style="text-align: right;">Sil</th>
                             </tr>
                         </thead>
@@ -35,79 +36,14 @@
                                     <td style="text-align: left;">@item.Surname</td>
                                     <td style="text-align: left;">@item.EmailAddress</td>
                                     <td style="text-align: right;">
-                                        <a data-toggle="modal" href="#ultraModal-7"><i style="font-size: 20px !important;" class="fa fa-eye text-warning"></i></a>
-
-                                        <!-- modal start -->
-                                        <div class="modal fade" id="ultraModal-7" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Mesaj</h4><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-
-                                                                <div class="form-group">
-                                                                    <label for="field-1" class="control-label">İsim</label>
-
-                                                                    <input type="text" class="form-control" id="field-1">
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-lg-6">
-
-                                                                <div class="form-group">
-                                                                    <label for="field-2" class="control-label">Soyisim</label>
-
-                                                                    <input type="text" class="form-control" id="field-2">
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-
-                                                                <div class="form-group">
-                                                                    <label for="field-4" class="control-label">Email Adres</label>
-
-                                                                    <input type="text" class="form-control" id="field-4">
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-lg-6">
-
-                                                                <div class="form-group">
-                                                                    <label for="field-5" class="control-label">Konu</label>
-
-                                                                    <input type="text" class="form-control" id="field-5">
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-lg-12">
-
-                                                                <div class="form-group">
-                                                                    <label for="field-6" class="control-label">Mesaj</label>
-
-                                                                    <textarea class="form-control mesaj-textarea" id="field-6" rows="6"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <a class="btn btn-success" href="/Admin/Dashboard/AnswerMail">Cevapla</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- modal end -->
-
+                                        <a href="javascript:void(0);" class="open-mail-modal" data-id="@item.ID">
+                                            <i class="fa fa-eye text-warning" style="font-size: 20px !important;"></i>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <a class="btn btn-link p-0 m-0" title="Cevapla" href="/Admin/Dashboard/AnswerMail/@item.ID">
+                                            <i class="fa fa-reply text-success" style="font-size: 20px !important;"></i>
+                                        </a>
                                     </td>
                                     <td style="text-align: right;">
                                         <form asp-action="DeleteMailList" asp-controller="Dashboard" asp-area="Admin" method="post" style="display:inline" onsubmit="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
@@ -130,7 +66,47 @@
         </div>
     </section>
 </div>
-<script type="text/javascript">
+
+
+
+<!-- Modal (tek bir tane) -->
+<div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="mailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Mesaj Detayı</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>İsim</label>
+                        <input type="text" class="form-control" id="modalName" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Soyisim</label>
+                        <input type="text" class="form-control" id="modalSurname" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="modalEmail" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Konu</label>
+                        <input type="text" class="form-control" id="modalTopic" readonly />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Mesaj</label>
+                        <textarea class="form-control" id="modalMessage" rows="6" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* <script type="text/javascript">
     function AjaxModalContent() {
         jQuery('#ultraModal-8').modal('show', { backdrop: 'static' });
 
@@ -142,3 +118,38 @@
         });
     }
 </script>
+ *@
+
+
+<script>
+    document.querySelectorAll('.open-mail-modal').forEach(button => {
+        button.addEventListener('click', async function () {
+            const id = this.dataset.id;
+            const modal = $('#mailModal');
+
+            // Önce temizle/yükleniyor göster
+            document.getElementById('modalName').value = 'Yükleniyor...';
+            document.getElementById('modalSurname').value = '';
+            document.getElementById('modalEmail').value = '';
+            document.getElementById('modalTopic').value = '';
+            document.getElementById('modalMessage').value = '';
+
+            modal.modal('show');
+
+            try {
+                const response = await fetch(`/Admin/Dashboard/GetMailList?id=${id}`);
+                if (!response.ok) throw new Error('Veri alınamadı');
+                const data = await response.json();
+
+                document.getElementById('modalName').value = data.name;
+                document.getElementById('modalSurname').value = data.surname;
+                document.getElementById('modalEmail').value = data.emailAddress;
+                document.getElementById('modalTopic').value = data.topic;
+                document.getElementById('modalMessage').value = data.message;
+            } catch (error) {
+                document.getElementById('modalMessage').value = 'Mesaj getirilemedi.';
+            }
+        });
+    });
+</script>
+

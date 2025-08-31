@@ -66,10 +66,14 @@
                                     <td style="text-align: left;">@Html.Raw(item.Desc)</td>
                                     <td style="text-align: right;">
                                         <label class="switch">
-                                            <input type="checkbox" checked="@(item.Status)">
+                                            <input type="checkbox"
+                                                   class="status-toggle"
+                                                   data-id="@item.ID"
+                                            @(item.Status ? "checked" : "") />
                                             <span class="slider round"></span>
                                         </label>
                                     </td>
+
                                     <td style="text-align: right;"><a href="/Admin/Home/EditWhyUs/@item.ID"><i style="font-size: 20px !important;" class="fa fa-pencil text-warning"></i></a></td>
                                 </tr>
                                 counter++;
@@ -81,3 +85,32 @@
         </div>
     </section>
 </div>
+
+
+<script>
+    document.querySelectorAll('.status-toggle').forEach(cb => {
+        cb.addEventListener('change', async (e) => {
+            const id = e.target.dataset.id;
+            const status = e.target.checked;
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            try {
+                const response = await fetch('/Admin/Home/ToggleWhyUsStatus', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': token
+                    },
+                    body: JSON.stringify({ id, status })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Güncelleme başarısız");
+                }
+            } catch {
+                e.target.checked = !status;
+                alert("Durum güncellenemedi.");
+            }
+        });
+    });
+</script>

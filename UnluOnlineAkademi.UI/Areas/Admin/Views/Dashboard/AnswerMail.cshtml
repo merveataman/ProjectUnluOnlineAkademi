@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UnluOnlineAkademi.UI.DTOs.HomeContactDto.GetHomeContactDto
+@{
     ViewData["Title"] = "AnswerMail";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -39,22 +40,17 @@
                 </header>
                 <div class="content-body">
                     <div class="row">
-                        <form action="#" method="post">
-
+                        <form asp-action="AnswerMail" asp-controller="Dashboard" asp-area="Admin" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="ID" value="@Model.ID" />
                             <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                 <div class="form-group">
                                     <label class="form-label" for="field-1">Kime:</label>
-                                    <span class="desc"></span>
-                                    <div class="controls">
-                                        <input type="text" value="" class="form-control" id="field-1">
-                                    </div>
+                                    <input type="text" class="form-control" value="@Model.EmailAddress" name="EmailAddress" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="field-1">Konu</label>
-                                    <span class="desc"></span>
-                                    <div class="controls">
-                                        <input type="text" value="" class="form-control" id="field-1">
-                                    </div>
+                                    <input type="text" class="form-control" value="@Model.Topic" name="Topic" readonly>
                                 </div>
                             </div>
 
@@ -62,14 +58,14 @@
 
                                 <div class="form-group">
                                     <label class="form-label" for="field-5">Mesaj</label>
-                                    <span class="desc"></span>
-                                    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10"> </textarea><br>
+                                    <textarea class="ckeditor" cols="80" name="Answer" rows="10">@Model.Answer</textarea><br>
                                 </div>
 
                                 <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
                                     <div class="text-left">
-                                        <button type="button" class="btn btn-success">Gönder</button>
-                                        <button type="button" class="btn btn-danger">İptal </button>
+                                        <button type="submit" class="btn btn-success">Gönder</button>
+                                        @* <button type="button" class="btn btn-danger">İptal </button> *@
+                                        <a href="/Admin/Dashboard/Index" class="btn btn-danger">İptal</a>
                                     </div>
                                 </div>
                             </div>
